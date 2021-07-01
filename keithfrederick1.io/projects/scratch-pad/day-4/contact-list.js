@@ -55,25 +55,24 @@ function makeContactList() {
             return contacts.push(contact);
         },
         findContact: function(fullName){
-            return contacts.filter(c => {
-               if (c.fullName === fullName) {
-                   return c;
-               }
-            });
+            for (let i = 0; i < contacts.length; i++){
+                if ( contacts[i].nameFirst + " " + contacts[i].nameLast === fullName){
+                    return contacts[i];
+                } else {
+                    return undefined;
+                }
+            }
         },
         removeContact: function(contact){
-           let removed = contacts.filter(c => { //// contact @ i
-                 if (c !== contact){
-                   console.log(c, contact);  
-                 }
-            });
-            
-            console.log(removed);
-            return removed;
+           for ( let i = contacts[0]; i < contacts[contacts.length - 1]; i++){
+               if (contacts[i].nameFirst  === contact.nameFirst){
+                   contacts.splice(contacts[i]);
+               }
+           }
         },
         printAllContactNames: function(contacts){
-            for (var key in contacts){
-                return key.toString();
+            for (let i = 0; i < contacts.length; i++){
+                return contacts[i].nameFirst + " " + contacts[i].nameLast;
                 
             }
         }

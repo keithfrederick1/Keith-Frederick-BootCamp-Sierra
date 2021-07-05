@@ -54,7 +54,7 @@ function replace(animals, name, replacement){
 function remove(animals, name){
     for (let i = 0; i < animals.length; i++){
         if (animals[i].name === name){
-            return animals.remove(animals[i]);
+            return animals.splice(i,1);
         }
     }
 }

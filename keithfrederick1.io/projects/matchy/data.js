@@ -37,6 +37,7 @@ console.log(noises);
 //////////////////////////////////////////////////////////////////////
 animal["noises"] = noises;
 animal.noises.push("woof");
+animal.noises.push("arrf?");
 console.log(animal);
 
 
@@ -72,7 +73,8 @@ animals.push(duck);
 console.log(animals);
 var cow = { species: "cow", name: "Betty", noises: ["moo", "aahhh"]};
 var cat = { species: "feline", name: "Kitty", noises: ["meow", "hsss"]};
-animals.push(cow,cat);
+animals.push(cow);
+animals.unshift(cat);
 console.log(animals);
 console.log(animals.length);
 

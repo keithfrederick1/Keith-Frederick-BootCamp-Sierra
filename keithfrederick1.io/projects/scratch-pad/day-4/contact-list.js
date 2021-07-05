@@ -64,17 +64,20 @@ function makeContactList() {
             }
         },
         removeContact: function(contact){
-           for ( let i = contacts[0]; i < contacts[contacts.length - 1]; i++){
-               if (contacts[i].nameFirst  === contact.nameFirst){
-                   contacts.splice(contacts[i]);
-               }
-           }
-        },
-        printAllContactNames: function(contacts){
-            for (let i = 0; i < contacts.length; i++){
-                return contacts[i].nameFirst + " " + contacts[i].nameLast;
-                
+        for (let i = 0; i < contacts.length; i++){
+            if(contacts[i].nameFirst === contact.nameFirst){
+                contacts.splice(i, 1);
             }
+        }return contacts;
+        },
+        printAllContactNames: function(){
+           // print firstname + lastname of each contact object
+           let name = "";
+           for (let i = 0; i < contacts.length-1; i++){
+                name +=  `${contacts[i].nameFirst} ${contacts[i].nameLast}` + "\n";
+           } 
+           name +=  `${contacts[contacts.length-1].nameFirst} ${contacts[contacts.length-1].nameLast}`;
+           return name;
         }
     }
 }
